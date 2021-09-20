@@ -25,4 +25,3 @@ after_success:
   # LOGIN
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push creig/multi-client creig/multi-nginx creig/multi-server creig/multi-worker
-
