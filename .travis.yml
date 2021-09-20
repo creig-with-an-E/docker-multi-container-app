@@ -1,0 +1,27 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  # for build context we are using client dir
+  - docker build -t creig/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  # primary test running section
+  # if any test exit with a code other than 0
+  # then Travis will assume that the build failed.
+  - docker run creig/react-test npm test -- --coverage
+  # overwrite default command with npm test
+  # -- --coverage -> will make sure test exits when done
+
+after_success:
+  - docker build -t creig/multi-client ./client
+  - docker build -t creig/nginx ./nginx
+  - docker build -t creig/multi-server ./server
+  - docker build -t creig/multi-worker ./worker
+
+  # before pushing to docker hub
+  # LOGIN
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push creig/multi_client creig/multi_nginx creig/multi_server creig/multi_worker
+
