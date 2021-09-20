@@ -16,9 +16,9 @@ script:
 
 after_success:
   - docker build -t creig/multi-client ./client
-  - docker build -t creig/multi-nginx ./nginx
-  - docker build -t creig/multi-server ./server
-  - docker build -t creig/multi-worker ./worker
+  # - docker build -t creig/multi-nginx ./nginx
+  # - docker build -t creig/multi-server ./server
+  # - docker build -t creig/multi-worker ./worker
 
   # before pushing to docker hub
   # LOGIN
