@@ -10,7 +10,7 @@ script:
   # primary test running section
   # if any test exit with a code other than 0
   # then Travis will assume that the build failed.
-  - docker run creig/react-test npm test -- --coverage
+  - docker run -e CI=true USERNAME/react-test npm test
   # overwrite default command with npm test
   # -- --coverage -> will make sure test exits when done
 
