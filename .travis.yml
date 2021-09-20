@@ -16,7 +16,7 @@ script:
 
 after_success:
   - docker build -t creig/multi-client ./client
-  - docker build -t creig/nginx ./nginx
+  - docker build -t creig/multi-nginx ./nginx
   - docker build -t creig/multi-server ./server
   - docker build -t creig/multi-worker ./worker
 
