@@ -24,5 +24,8 @@ after_success:
   # before pushing to docker hub
   # LOGIN
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # - docker push creig/multi-client creig/multi-nginx creig/multi-server creig/multi-worker
+  # - docker push 
+  - docker push creig/multi-nginx 
+  - docker push creig/multi-server 
+  - docker push creig/multi-worker
   - docker push creig/multi-client
