@@ -30,15 +30,14 @@ after_success:
   - docker push creig/multi-worker
   - docker push creig/multi-client
 
-docker:
+deploy:
   provider: elasticbeanstalk
   region: 'us-east-1'
   app: 'docker-app-deploy'
   env: 'Dockerappdeploy-env'
-  # there is bucket with our code in s3
   bucket_name: 'elasticbeanstalk-us-east-1-731204285057'
   bucket_path: 'docker-test-deploy-creig/'
   on:
-    branch: main # /master?
+    branch: main
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
