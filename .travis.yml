@@ -32,12 +32,12 @@ after_success:
 
 docker:
   provider: elasticbeanstalk
-  region: "us-east-1"
-  app: "docker-app-deploy"
-  env: "Dockerappdeploy-env"
+  region: us-east-1
+  app: docker-app-deploy
+  env: Dockerappdeploy-env
   # there is bucket with our code in s3
-  bucket_name: "elasticbeanstalk-us-east-1-731204285057"
-  bucket_path: "docker-test-deploy-creig/"
+  bucket_name: elasticbeanstalk-us-east-1-731204285057
+  bucket_path: docker-test-deploy-creig/
   on:
     branch: main # /master?
   access_key_id: $AWS_ACCESS_KEY
